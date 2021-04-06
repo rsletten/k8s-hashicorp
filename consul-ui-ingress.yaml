@@ -1,0 +1,20 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+  name: consul-consul-ui-ingress
+  namespace: hashicorp
+spec:
+  rules:
+  - host: consul.k8s.rsletten.com
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: consul-consul-ui 
+            port:
+              number: 80
