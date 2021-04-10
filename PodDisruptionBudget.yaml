@@ -1,0 +1,38 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  annotations:
+    meta.helm.sh/release-name: consul
+    meta.helm.sh/release-namespace: hashicorp
+  creationTimestamp: "2021-04-06T20:01:50Z"
+  generation: 1
+  labels:
+    app: consul
+    app.kubernetes.io/managed-by: Helm
+    chart: consul-helm
+    heritage: Helm
+    release: consul
+  name: consul-consul-server
+  namespace: hashicorp
+  resourceVersion: "1496832"
+  uid: 7c2dfce0-3292-4c3c-8996-d91214b667a5
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: consul
+      component: server
+      release: consul
+status:
+  conditions:
+  - lastTransitionTime: "2021-04-09T18:43:39Z"
+    message: ""
+    observedGeneration: 1
+    reason: InsufficientPods
+    status: "False"
+    type: DisruptionAllowed
+  currentHealthy: 1
+  desiredHealthy: 1
+  disruptionsAllowed: 1
+  expectedPods: 1
+  observedGeneration: 1
